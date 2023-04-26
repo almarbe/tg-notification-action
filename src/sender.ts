@@ -16,10 +16,7 @@ export class TelegramSender {
 
         try {
             const requestBody = {
-                text: `
-                    ${to}
-                    ${text}
-                `,
+                text: `${to}\n${text}`,
                 chat_id: chatId,
                 parse_mode: this._defaultParseMode,
             }
