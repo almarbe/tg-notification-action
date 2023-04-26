@@ -3,7 +3,7 @@
  * @param {String} str String to be checked to be in correct format
  * @return {Boolean} String validity as boolean
  */
-export const checkGithubProviderFormat = (str) => {
+export const checkGithubProviderFormat = (str: string) => {
   const az09 = '[A-z0-9_\\-@\\.]+';
   const pattern = new RegExp(`^${az09}:${az09}(,\\s*${az09}:${az09})*$`, 'm');
   return pattern.test(str);
@@ -14,8 +14,8 @@ export const checkGithubProviderFormat = (str) => {
  * @param {String} str String to convert to Object
  * @return {Object} Object with usernames as properties and IDs as values
  */
-export const stringToObject = (str) => {
-  const map = {};
+export const stringToObject = (str: string): Record<string, string> => {
+  const map: Record<string, string> = {};
 
   if (!str) {
     return map;
@@ -37,7 +37,7 @@ export const stringToObject = (str) => {
  * @param { String } pr2user String users comma separated
  * @param { Object } github2provider Record { nickname1: nickname2 }
  */
-export const fromGithubToProviderNickname = (pr2user, github2provider) => {
+export const fromGithubToProviderNickname = (pr2user: string, github2provider: Record<string, string>) => {
   let message = '';
   for (const login of pr2user.split(', ')) {
     const mention = github2provider[login] ?
