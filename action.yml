@@ -1,11 +1,28 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Simple Telegram Action'
+description: 'Telegram notification set up with GitHub Actions and allow maps github users to tg nicknames'
+author: 'WILDEGOR'
+branding:
+  icon: 'send'
+  color: 'red'
 inputs:
-  milliseconds: # change this
+  TOKEN:
+    description: 'The Telegram Bot token'
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  CHAT_ID:
+    description: 'The target to which the message will be sent, can be a Telegram Channel or Group'
+    required: true
+  MESSAGE:
+    description: "The current status of the job: job.status, defaults to 'success'"
+    required: false
+    default: ''
+  MENTIONS:
+    description: "Any comma separated string like: username1, username2"
+    required: false
+    default: ''
+  GITHUB2PROVIDER_MAP:
+    description: "Mapped provider values like: username1:username2,username3:username4"
+    required: false
+    default: ''
 runs:
   using: 'node16'
   main: 'dist/index.js'
