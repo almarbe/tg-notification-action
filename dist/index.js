@@ -64,7 +64,7 @@ function run() {
                     to = (0, utils_1.fromGithubToProviderNickname)(mentions, github2provider);
                 }
             }
-            core.debug(`Sending message, payload=${JSON.stringify(github_1.context.payload)}`);
+            core.debug(`Send message, payload=${JSON.stringify(github_1.context.payload)}`);
             yield telegramSender.send(botToken, chatId, to, msg, parseMod);
             core.debug('Message sent!');
         }

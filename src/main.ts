@@ -29,7 +29,7 @@ async function run(): Promise<void> {
             }
         }
 
-        core.debug(`Sending message, payload=${JSON.stringify(context.payload)}`);
+        core.debug(`Send message, payload=${JSON.stringify(context.payload)}`);
 
         await telegramSender.send(
             botToken,
@@ -44,5 +44,4 @@ async function run(): Promise<void> {
         if (error instanceof Error) core.setFailed(error.message)
     }
 }
-
 run()
