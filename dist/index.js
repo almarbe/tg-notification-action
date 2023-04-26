@@ -129,7 +129,10 @@ class TelegramSender {
             const uri = `${this._baseUrl}/bot${token}/sendMessage`;
             try {
                 const requestBody = {
-                    text: `${to}<br />${text}`,
+                    text: `
+                    ${to}
+                    ${text}
+                `,
                     chat_id: chatId,
                     parse_mode: this._defaultParseMode,
                 };
