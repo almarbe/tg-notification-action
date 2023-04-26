@@ -33,7 +33,7 @@ export class TelegramSender {
             }
 
             await axios.post(uri, {
-                body: requestBody,
+                ...requestBody,
             })
 
             return true;
