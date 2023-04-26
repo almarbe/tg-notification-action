@@ -1,4 +1,4 @@
-name: 'Simple Telegram Action'
+name: 'Smart Telegram Action'
 description: 'Telegram notification set up with GitHub Actions and allow maps github users to tg nicknames'
 author: 'WILDEGOR'
 branding:
