@@ -8,5 +8,5 @@ Variables:
 - TOKEN: bot token
 - CHAT_ID: specific chat id (see, GET https://api.telegram.org/bot<token>/getUpdates)
 - MESSAGE: text payload
-- MENTIONS: comma-sep list for example github reviewer nicknames
-- GITHUB2PROVIDER_MAP: list with mapped telegram nicknames, for example nicknamegh:nicknametg,nickgh:nicktg
+- MENTIONS: string json array like '[{"login":"WildEgor"}]'
+- GITHUB2PROVIDER_MAP: csv as mapped nicknames (for example: WildEgor:WILDEGOR)
