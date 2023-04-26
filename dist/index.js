@@ -142,9 +142,7 @@ class TelegramSender {
                     <div>${text}</div>
                 `;
                 }
-                yield axios_1.default.post(uri, {
-                    body: requestBody,
-                });
+                yield axios_1.default.post(uri, Object.assign({}, requestBody));
                 return true;
             }
             catch (e) {
