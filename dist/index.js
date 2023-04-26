@@ -206,10 +206,10 @@ exports.stringToObject = stringToObject;
  */
 const fromGithubToProviderNickname = (pr2user, github2provider) => {
     let message = '';
-    for (const login of pr2user.split(', ')) {
-        const mention = github2provider[login] ?
-            `@${github2provider[login]}` :
-            `@${login}`;
+    for (const user of JSON.parse(pr2user)) {
+        const mention = github2provider[user === null || user === void 0 ? void 0 : user.login] ?
+            `@${github2provider[user === null || user === void 0 ? void 0 : user.login]}` :
+            `@${user === null || user === void 0 ? void 0 : user.login}`;
         message += `${mention} `;
     }
     return message;

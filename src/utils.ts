@@ -39,10 +39,10 @@ export const stringToObject = (str: string): Record<string, string> => {
  */
 export const fromGithubToProviderNickname = (pr2user: string, github2provider: Record<string, string>) => {
   let message = '';
-  for (const login of pr2user.split(', ')) {
-    const mention = github2provider[login] ?
-            `@${github2provider[login]}` :
-            `@${login}`;
+  for (const user of JSON.parse(pr2user)) {
+    const mention = github2provider[user?.login] ?
+            `@${github2provider[user?.login]}` :
+            `@${user?.login}`;
     message += `${mention} `;
   }
 
