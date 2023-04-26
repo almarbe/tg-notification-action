@@ -41,14 +41,11 @@ export const fromGithubToProviderNickname = (pr2user: string, github2provider: R
   let message = '';
   const parsed = JSON.parse(pr2user);
 
-  for (const key in parsed) {
-    if (parsed.hasOwnProperty(key)) {
-      const mention = github2provider[parsed[key]?.login] ?
-          `@${github2provider[parsed[key]?.login]}` :
-          `@${parsed[key]?.login}`;
+  for (const obj of parsed) {
+      const mention = github2provider[obj?.login] ?
+          `@${github2provider[obj?.login]}` :
+          `@${obj?.login}`;
       message += `${mention} `;
-    }
-
   }
 
   return message;

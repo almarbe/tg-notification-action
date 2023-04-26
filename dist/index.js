@@ -205,16 +205,13 @@ exports.stringToObject = stringToObject;
  * @param { Object } github2provider Record { nickname1: nickname2 }
  */
 const fromGithubToProviderNickname = (pr2user, github2provider) => {
-    var _a, _b, _c;
     let message = '';
     const parsed = JSON.parse(pr2user);
-    for (const key in parsed) {
-        if (parsed.hasOwnProperty(key)) {
-            const mention = github2provider[(_a = parsed[key]) === null || _a === void 0 ? void 0 : _a.login] ?
-                `@${github2provider[(_b = parsed[key]) === null || _b === void 0 ? void 0 : _b.login]}` :
-                `@${(_c = parsed[key]) === null || _c === void 0 ? void 0 : _c.login}`;
-            message += `${mention} `;
-        }
+    for (const obj of parsed) {
+        const mention = github2provider[obj === null || obj === void 0 ? void 0 : obj.login] ?
+            `@${github2provider[obj === null || obj === void 0 ? void 0 : obj.login]}` :
+            `@${obj === null || obj === void 0 ? void 0 : obj.login}`;
+        message += `${mention} `;
     }
     return message;
 };
